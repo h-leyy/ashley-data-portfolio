@@ -85,7 +85,7 @@ Technologies utilisées: Python, Pandas, Matplotlib, Seaborn
 - Autres: Data Visualization, Machine Learning, Web Scraping  
 
 ## 📥 contact
-- linkedin :
+- linkedin : www.linkedin.com/in/ashley-km 
 - mail : makuizaashley@icloud.com
 ---
 
