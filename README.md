@@ -17,7 +17,6 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
    - [1. Analyse des flux de trésorerie de Safran sur les cinq dernières années](#1️⃣-analyse-des-flux-de-trésorerie-de-safran-sur-les-cinq-dernières-années)
    - [2. Projet SQL/Power BI – Conseil en stratégie commerciale et opérationnelle d’une entreprise](#2️⃣-projet-sqlpower-bi--conseil-en-stratégie-commerciale-et-opérationnelle-dune-entreprise)
    - [3. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R](#3️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r)
-   - [4. Projet Python – Détection des fake news](#4️⃣-projet-python--détection-des-fake-news)
 3. [Compétences Techniques](#🛠-compétences-techniques)
 4. [Contact](#📥-contact)
 
@@ -61,21 +60,7 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 #### 📂 Fichiers:
 - 📄 `notebooks/memoire_econometrie.Rmd`
 - 📊 `visualizations/viral_analysis.png`
-
----
-
-### 4️⃣ Projet Python – Détection des fake news  
-Technologies utilisées: Python, Pandas, Matplotlib, Seaborn  
-- Contexte: Analyse d'un dataset de news pour détecter si un article est une fake news ou non en utilisant des techniques de traitement du langage naturel (NLP).
-- Objectif: Construire un modèle de classification pour prédire si un article de presse est un fake news ou un article fiable.  
-- Données: Dataset "Fake News Detection" de Kaggle  
-- Résultats: Évaluation des performances du modèle, analyse des erreurs, et visualisations des résultats de classification (précision, rappel, F1-score). Des graphiques pourront aussi illustrer les fréquences des mots les plus fréquents dans les articles faux versus vrais.
-
   
-#### 📂 Fichiers:
-- 📄 `notebooks/ecommerce_analysis.ipynb`
-- 📊 `visualizations/sales_trends.png`
-
 ---
 
 ## 🛠 Compétences Techniques
