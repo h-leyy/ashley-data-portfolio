@@ -4,7 +4,7 @@
 
 Bonjour, je suis Ashley KILOLA MAKUIZA, et je suis en route pour devenir Data Analyste. Actuellement en formation dans le cadre de mon Master en Big Data, Analyse et Business Intelligence, je développe mes compétences techniques et analytiques pour appliquer les données dans des projets concrets.
 
-Tout au long de mes études, j'ai travaillé avec diverses bases de données, développé de solides capacités de résolution de problèmes, et acquis une expérience pratique avec divers outils et technologies. Mon parcours me permet de comprendre les données tant d'un point de vue technique que commercial, faisant de moi une analyste polyvalente, prête à contribuer aux équipes orientées vers les données.
+Tout au long de mes études, j'ai travaillé avec diverses bases de données, développé de solides capacités de résolution de problèmes, et acquis une expérience pratique avec divers outils et technologies. Mon parcours me permet de comprendre les données tant d'un point de vue technique que commercial,me préparant à devenir une data analyste polyvalente et apte à contribuer aux équipes axées sur les données.
 
 Dans mon temps libre, j'aime me tenir informée des dernières tendances en Big data, expérimenter avec de nouveaux outils et travailler sur des projets personnels pour continuer à progresser dans ce domaine.
 
