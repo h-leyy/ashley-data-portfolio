@@ -45,8 +45,7 @@ Technologies utilisées: SQL, Power BI, Business Intelligence
 - Résultats: Tableau de bord interactif sur Power BI, permettant de visualiser les tendances et d’analyser les performances par région et par catégorie de produits.
 
 #### 📂 Fichiers:
-- 📄
--  [📄 `sql_queries/queries.sql`](sql_queries/queries.sql)
+- 📄 [ `sql_queries/queries.sql`](sql_queries/queries.sql)
 
 -  `sql_queries/queries.sql`
 - 📊 `visualizations/sales_dashboard.pbix`
