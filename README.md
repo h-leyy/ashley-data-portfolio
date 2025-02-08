@@ -46,7 +46,7 @@ Technologies utilisées: SQL, Power BI, Business Intelligence
 
 #### 📂 Fichiers:
 - 📄 [ `sql_queries/queries.sql`](sql_queries/queries.sql)
-- 📊 `visualizations/sales_dashboard.pbix`
+- 📊 [`visualizations/sales_dashboard.pbix`](projet2_visualizations/)
 
 ---
 
