@@ -60,7 +60,7 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 #### 📂 Fichiers:
 - 📄 [`notebooks_memoire_econometrie.html`](Notebook - Analyse de la viralité)
 - 📊 `visualizations/viral_analysis.png`
-  
+## 📄 [Voir le fichier R ici](script_analyse_viralité_en_cours.R)
 ---
 
 ## 🛠 Compétences Techniques
