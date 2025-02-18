@@ -58,7 +58,7 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 - Résultats: Modélisation économétrique et visualisations des relations entre les variables influençant la viralité.
 
 #### 📂 Fichiers:
-- 📄 [`notebooks_memoire_econometrie.html`](Notebook - Analyse de la viralité)
+- 📄  [ `script_analyse_viralité_en_cours.R`](script_analyse_viralité_en_cours.R)
 - 📊 `visualizations/viral_analysis.png`
 ## 📄 [Voir le fichier R ici](script_analyse_viralité_en_cours.R)
 ---
