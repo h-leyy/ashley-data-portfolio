@@ -60,7 +60,8 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 #### 📂 Fichiers:
 - 📄  [ `script_analyse_viralité_en_cours.R`](script_analyse_viralité_en_cours.R)
 - 📊 `visualizations/viral_analysis.png`
-## 📄 [Voir le fichier R ici](script_analyse_viralité_en_cours.R)
+
+
 ---
 
 ## 🛠 Compétences Techniques
