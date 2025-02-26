@@ -14,9 +14,9 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
 ## Table des matières
 1. [À propos de moi](#à-propos-de-moi)
 2. [Projets de Portfolio](#🚀-projets)
-   - [1. Analyse des flux de trésorerie de Safran sur les cinq dernières années](#1️⃣-analyse-des-flux-de-trésorerie-de-safran-sur-les-cinq-dernières-années)
+   - [1. Analyse des flux de trésorerie de Safran sur les cinq dernières années en cours](#1️⃣-analyse-des-flux-de-trésorerie-de-safran-sur-les-cinq-dernières-années-en-cours)
    - [2. Projet SQL/Power BI – Conseil en stratégie commerciale et opérationnelle d’une entreprise](#2️⃣-projet-sqlpower-bi--conseil-en-stratégie-commerciale-et-opérationnelle-dune-entreprise)
-   - [3. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R](#3️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r)
+   - [3. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R en cours](#3️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r-en-cours)
 3. [Compétences Techniques](#🛠-compétences-techniques)
 4. [Contact](#📥-contact)
 
@@ -24,7 +24,7 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
 
 ## 🚀 Projets
 
-### 1️⃣ Analyse des flux de trésorerie de Safran sur les cinq dernières années
+### 1️⃣ Analyse des flux de trésorerie de Safran sur les cinq dernières années en cours
 Technologies utilisées: Python, Pandas, Matplotlib, Seaborn, Power BI  
 - Contexte: Analyse des flux de trésorerie d'une grande entreprise (Safran) pour comprendre sa gestion financière et formuler des recommandations stratégiques.  
 - Objectif: Identifier les tendances dans les flux de trésorerie et analyser l'impact des investissements sur la liquidité de l’entreprise.  
@@ -50,7 +50,7 @@ Technologies utilisées: SQL, Power BI, Business Intelligence
 
 ---
 
-### 3️⃣ Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R
+### 3️⃣ Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R en cours
 Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques  
 - Contexte: Étude des facteurs qui influencent la viralité des vidéos TikTok à l’aide de régressions économétriques.  
 - Objectif: Identifier les éléments clés (comme la durée de la vidéo, le type de contenu, etc.) qui influencent la viralité.  
