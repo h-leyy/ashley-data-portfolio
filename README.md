@@ -17,7 +17,7 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
    
    - [1. Projet SQL/Power BI – Conseil en stratégie commerciale et opérationnelle d’une entreprise](#1️⃣-projet-sqlpower-bi--conseil-en-stratégie-commerciale-et-opérationnelle-dune-entreprise)
    - [2. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R en cours](#2️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r-en-cours)
-   - [3. Analyse des flux de trésorerie de Safran sur les cinq dernières années en cours](#3️⃣-analyse-des-flux-de-trésorerie-de-safran-sur-les-cinq-dernières-années-en-cours)
+   - [3. Projet Python – Prédiction de la Consommation Énergétique des Smart Cities](#3️⃣-projet-python-prédiction-de-la-consommation-énergétique-des-smart-cities-en-cours)
 
 3. [Compétences Techniques](#🛠-compétences-techniques)
 4. [Contact](#📥-contact)
@@ -52,16 +52,16 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 
 ---
 
-### 3️⃣ Analyse des flux de trésorerie de Safran sur les cinq dernières années en cours
-Technologies utilisées: Python, Pandas, Matplotlib, Seaborn, Power BI  
-- Contexte: Analyse des flux de trésorerie d'une grande entreprise (Safran) pour comprendre sa gestion financière et formuler des recommandations stratégiques.  
-- Objectif: Identifier les tendances dans les flux de trésorerie et analyser l'impact des investissements sur la liquidité de l’entreprise.  
-- Données: Données financières de Safran provenant de rapports annuels et de Yahoo Finance.  
-- Résultats: Présentation des insights financiers et du dashboard interactif sur Power BI.
+### 3️⃣ Projet Python – Prédiction de la Consommation Énergétique des Smart Cities
+Technologies utilisées: Python  (Scikit-learn, Statsmodels, TensorFlow, Pandas) 
+- Contexte: Utilisation de Python pour modéliser et prédire la consommation énergétique des villes, en se concentrant sur l’efficacité énergétique dans le cadre de la transition vers des Smart Cities.
+- Objectif: Analyser et prédire l’évolution de la consommation énergétique urbaine en appliquant des techniques de régression, de clustering et de séries temporelles.  
+- Données: Données sur la consommation énergétique, l’efficacité des villes et des paramètres environnementaux (fournies par des sources ouvertes comme UNdata). 
+- Résultats: Modélisation précise de la consommation énergétique avec des outils comme K-Means (clustering), ARIMA et régression linéaire pour anticiper l’évolution de la consommation des villes, fournissant des recommandations pour l'optimisation énergétique.
 
 #### 📂 Fichiers:
-- 📄 `notebooks/analyse_tresorerie.ipynb`
-- 📊 `visualizations/cash_flow_dashboard.pbix`
+- 📄 `python_code/smart_cities_energy_prediction.py`
+- 📊 `visualizations/energy_consumption_dashboard.html`
 
 ---
 
