@@ -1,4 +1,4 @@
-# Ashley KILOLA MAKUIZA - Data Analysis Portfolio
+# Ashley - Data Analysis Portfolio
 
 ## À propos de moi
 
