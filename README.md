@@ -2,9 +2,7 @@
 
 ## À propos de moi
 
-Bonjour, je suis Ashley KILOLA MAKUIZA, et je suis en route pour devenir Data Analyste. Actuellement en formation dans le cadre de mon Master en Big Data, Analyse et Business Intelligence, je développe mes compétences techniques et analytiques pour appliquer les données dans des projets concrets.
-
-Tout au long de mes études, j'ai travaillé avec diverses bases de données, développé de solides capacités de résolution de problèmes, et acquis une expérience pratique avec divers outils et technologies. Mon parcours me permet de comprendre les données tant d'un point de vue technique que commercial,me préparant à devenir une data analyste polyvalente et apte à contribuer aux équipes axées sur les données.
+Bonjour, je suis Ashley, et je suis en route pour devenir Data Analyste. Actuellement en formation au sein du Master Big Data, Analyse et Business Intelligence, je développe mes compétences techniques et analytiques pour appliquer les données dans des projets concrets.
 
 Dans mon temps libre, j'aime me tenir informée des dernières tendances en Big data, expérimenter avec de nouveaux outils et travailler sur des projets personnels pour continuer à progresser dans ce domaine.
 
@@ -17,7 +15,7 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
    
    - [1. Projet SQL/Power BI – Conseil en stratégie commerciale et opérationnelle d’une entreprise](#1️⃣-projet-sqlpower-bi--conseil-en-stratégie-commerciale-et-opérationnelle-dune-entreprise)
    - [2. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R en cours](#2️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r-en-cours)
-   - [3. Projet Python – Prédiction de la Consommation Énergétique des Smart Cities](#3️⃣-projet-python-prédiction-de-la-consommation-énergétique-des-smart-cities-en-cours)
+   - [3. Projet Python –  Maladies Cardiovasculaires ….Quelles sont les individus les plus vulnérables ?](#3️⃣-projet-python-maladies-cardiovasculaires-quelles-sont-les-individus-les-plus-vulnérables-?)
 
 3. [Compétences Techniques](#🛠-compétences-techniques)
 4. [Contact](#📥-contact)
@@ -52,23 +50,23 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 
 ---
 
-### 3️⃣ Projet Python – Prédiction de la Consommation Énergétique des Smart Cities
-Technologies utilisées: Python  (Scikit-learn, Statsmodels, TensorFlow, Pandas) 
-- Contexte: Utilisation de Python pour modéliser et prédire la consommation énergétique des villes, en se concentrant sur l’efficacité énergétique dans le cadre de la transition vers des Smart Cities.
-- Objectif: Analyser et prédire l’évolution de la consommation énergétique urbaine en appliquant des techniques de régression, de clustering et de séries temporelles.  
-- Données: Données sur la consommation énergétique, l’efficacité des villes et des paramètres environnementaux (fournies par des sources ouvertes comme UNdata). 
-- Résultats: Modélisation précise de la consommation énergétique avec des outils comme K-Means (clustering), ARIMA et régression linéaire pour anticiper l’évolution de la consommation des villes, fournissant des recommandations pour l'optimisation énergétique.
+### 3️⃣ Projet Python – Maladies Cardiovasculaires ….Quelles sont les individus les plus vulnérables ?
+Technologies : Python (Pandas, Seaborn, Matplotlib)
+- Contexte : Analyse de données médicales pour identifier les profils à risque de pathologies cardiovasculaires.
+- Objectif : Décrire les patients, classifier les pathologies, segmenter les profils et détecter les facteurs de risque.
+- Méthodes : Analyse descriptive, classification, clustering (K-Means) et visualisation.
+- Résultats : Identification de profils types à risque élevé et recommandations ciblées basées sur les facteurs de mode de vie et antécédents médicaux
 
 #### 📂 Fichiers:
-- 📄 `python_code/smart_cities_energy_prediction.py`
-- 📊 `visualizations/energy_consumption_dashboard.html`
+- 📄 [`Projet_pyhton.ipynb`](https://github.com/h-leyy/ashley-data-portfolio/blob/main/Projet_pyhton.ipynb)
+- 📊 [Présentation - Projet Python (PDF)](https://github.com/h-leyy/ashley-data-portfolio/blob/main/Projet%20Python%20-%20pr%C3%A9sentation.pdf)
 
 ---
 
 
 ## 🛠 Compétences Techniques
 - Langages: Python, R, SQL  
-- Outils: Power BI, Tableau, Jupyter, VS Code  
+- Outils: Power BI, Tableau, Jupyter, Colab  
 - Analyse: Statistiques descriptives, régressions linéaires/logistiques, modélisation économétrique  
 - Autres: Data Visualization, Machine Learning, Web Scraping  
 
