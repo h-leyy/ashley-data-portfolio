@@ -14,9 +14,9 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
 2. [Projets de Portfolio](#🚀-projets)
    
    - [1. Projet SQL/Power BI – Conseil en stratégie commerciale et opérationnelle d’une entreprise](#1️⃣-projet-sqlpower-bi--conseil-en-stratégie-commerciale-et-opérationnelle-dune-entreprise)
-   - [2. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R en cours](#2️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r-en-cours)
-   - [3. Projet Python – Quelles sont les individus les plus vulnérables aux maladies cardiovasculaires?](#3️⃣-projet-python-quelles-sont-les-individus-les-plus-vulnérables-maladies-cardiovasculaires-?)
-   - [4. Projet Python – Facteurs d'accouchement prématuré ](#1️⃣-projet-python-facteurs-d'accouchement-prématuré)
+   - [2. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression](#2️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression)
+   - [3. Projet Python – Quelles sont les individus les plus vulnérables aux maladies cardiovasculaires ?](#3️⃣-projet-python-quelles-sont-les-individus-les-plus-vulnérables-maladies-cardiovasculaires-?)
+   - [4. Projet Python – Facteurs d'accouchement prématuré](#1️⃣-projet-python-facteurs-d'accouchement-prématuré)
 
 3. [Compétences Techniques](#🛠-compétences-techniques)
 4. [Contact](#📥-contact)
@@ -51,7 +51,7 @@ Technologies utilisées: R, ggplot2, Régressions linéaires/logistiques
 
 ---
 
-### 3️⃣ Projet Python – Quelles sont les individus les plus vulnérables aux maladies cardiovasculaires?
+### 3️⃣ Projet Python – Quelles sont les individus les plus vulnérables aux maladies cardiovasculaires ?
 Technologies : Python (Pandas, Seaborn, Matplotlib)
 - Contexte : Analyse de données médicales pour identifier les profils à risque de pathologies cardiovasculaires.
 - Objectif : Décrire les patients, classifier les pathologies, segmenter les profils et détecter les facteurs de risque.
