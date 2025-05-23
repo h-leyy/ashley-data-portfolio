@@ -1,0 +1,444 @@
+## Projet Econométrie : Facteur d'accouchement prématuré ----
+
+
+## Installation des package ----
+install.packages("readxl")
+install.packages("tidyr")
+install.packages("ggplot2")
+install.packages("car")
+install.packages("MASS")
+install.packages("lmtest")
+install.packages("pscl")
+install.packages("pROC")
+install.packages("margins")
+install.packages("ggeffects")
+install.packages("nnet")
+install.packages("dfidx")
+install.packages("mlogit")
+install.packages("brglm2")
+install.packages("rtoot")
+install.packages("summarytools") 
+install.packages("vcd")
+install.packages("ggcorrplot")
+install.packages("GGally")
+install.packages("moments")
+install.packages("dplyr")
+install.packages("psych")
+install.packages("reshape2")
+install.packages("effsize")
+install.packages("factoextra")
+install.packages("ResourceSelection")
+
+
+
+# Chargement des librairies
+library(readxl)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(car)
+library(MASS)
+library(lmtest)
+library(pscl)
+library(pROC)
+library(margins)
+library(ggeffects)
+library(nnet)
+library(dfidx)
+library(mlogit)
+library(brglm2)
+library(rtoot)
+# library(summarytools) # This is where the error occurred, should work after successful installation
+library(vcd)     # pour assocstats()
+# library(effsize) # pour Cohen's d
+library(psych)
+library(reshape2)
+library(ggcorrplot)
+library(GGally)
+library(moments)      # skewness, kurtosis
+library(vcd)
+library(dplyr)
+library(ggplot2)
+library(e1071)
+library(psych)
+library(Hmisc)
+library(DescTools)
+library(ggcorrplot)
+library(GGally)
+library(corrplot)
+library(readxl)
+library(ggplot2)
+library(GGally)
+library(ggcorrplot)
+library(psych)
+library(tidyverse)
+library(MASS)
+library(broom)
+library(car)
+library(ResourceSelection)
+library(pROC)
+library(margins)
+library(readxl) 
+library(factoextra)
+
+## Pré-traitemement du jeu de données   -----
+
+df_prem <- read_excel("4_prematures.xls")
+View(df_prem)
+
+print(df_prem)
+
+# Structure et types
+str(df_prem)
+# Nombre d'observations et variables
+dim(df_prem)
+#  Afficher le nom des colonnes présente dans la DataBase
+colnames(df_prem)
+# Résumé statistique global (inclus NA)
+summary(df_prem)
+# Compter les valeurs manquantes
+sum(is.na(df_prem))
+# Compter les valeurs non manquantes
+sum(!is.na(df_prem))
+
+# Traitement des variables qualitatives
+df_prem_qua <- df_prem %>%
+  mutate(
+    CONSIS    = factor(CONSIS, levels = c(1,2,3), labels = c("Mou","Moyen","Ferme")),
+    CONTR     = factor(CONTR, levels = c(1,2), labels = c("Présente","Absente")),
+    MEMBRAN   = factor(MEMBRAN, levels = c(1,2,3), labels = c("Rupturées","Intactes","Incertains")),
+    DIAB      = na_if(DIAB, 9) %>% factor(levels = c(1,2), labels = c("Diabète","Pas diabète")),
+    TRANSF    = factor(TRANSF, levels = c(1,2), labels = c("Transférée","Non transférée")),
+    GEMEL     = factor(GEMEL, levels = c(1,2), labels = c("Simple","Multiple")),
+    STRAT     = factor(STRAT),
+    GRAVID    = as.integer(GRAVID),
+    PARIT     = as.integer(PARIT),
+    PREMATURE = as.character(PREMATURE)
+  )
+
+# Vérification si des NAs sont présente dans df_prem_qua si oui il faudra les traiter
+print(df_prem_qua)
+str(df_prem_qua)
+summary(df_prem_qua)
+sum(is.na(df_prem_qua))
+colSums(is.na(df_prem_qua))
+unique(df_prem$CONTR)
+unique(df_prem$DIAB)
+
+
+# Pour éviter de fausser les résultats de nos analyses futures,
+# nous proséderons simplement à gérer les valeurs manquantes en les supprimant
+cl_prem_qua <- na.omit(df_prem_qua)
+print(cl_prem_qua)
+str(cl_prem_qua)
+summary(cl_prem_qua)
+sum(is.na(cl_prem_qua))
+colSums(is.na(cl_prem_qua))
+dim(cl_prem_qua)
+
+
+
+## Analyse descriptive   -----
+
+
+
+# Calcul du nombre total d'observations dans le dataframe
+print(n_obs <- nrow(df_prem_qua))
+
+# Sélection des variables numériques du dataframe
+num_vars <- df_prem_qua %>%
+  select_if(is.numeric)
+num_vars
+
+# Analyse de la variable dépendante PREMATURE
+# Comptage des occurences de chaque valeur dans PREMATURE
+count_prem  <- table(df_prem_qua$PREMATURE)
+count_prem
+# Calcul des proportions en pourcentage
+prop_prem   <- prop.table(count_prem) * 100
+prop_prem
+
+# Calcul des tendances centrales pour les variables numériques
+# Moyenne arithmétique
+print(mean_ari    <- sapply(num_vars, mean, na.rm=TRUE))
+# Médiane
+print(median_     <- sapply(num_vars, median, na.rm=TRUE))
+# Mode
+print(mode_       <- sapply(num_vars, function(x) {
+  ux <- unique(x); ux[which.max(tabulate(match(x, ux)))]
+}))
+# Moyenne tronquée (5%)
+print(trimmed     <- sapply(num_vars, function(x) mean(x, trim=0.05, na.rm=TRUE)))                            # trimmed mean :contentReference[oaicite:2]{index=2}
+# Moyenne winsorisée(5%)
+print(winsor_mean <- sapply(num_vars, function(x) winsor(x, trim=0.05) %>% mean(na.rm=TRUE)))                 # winsorized mean :contentReference[oaicite:3]{index=3}
+# Moyenne géométrique
+print(geo_mean    <- sapply(num_vars, geometric.mean, na.rm=TRUE))                                             # moyenne géométrique :contentReference[oaicite:4]{index=4}
+# Moyenne harmonique
+print(har_mean    <- sapply(num_vars, harmonic.mean, na.rm=TRUE))                                              # moyenne harmonique :contentReference[oaicite:5]{index=5}
+# Moyenne pondérée (pondérée par l'âge)
+print(w_mean      <- sapply(num_vars, function(x) weighted.mean(x, w=num_vars$AGE, na.rm=TRUE)))               # moyenne pondérée
+# RMS (Root Mean Square)
+print(rms         <- sapply(num_vars, function(x) sqrt(mean(x^2, na.rm=TRUE))))                                # RMS
+
+
+
+# Calcul des mesures de dispersion
+# Etendue
+print(range_      <- sapply(num_vars, function(x) diff(range(x, na.rm=TRUE))))
+# Variance
+print(variance    <- sapply(num_vars, var, na.rm=TRUE))
+# Ecart-types
+print(sd_         <- sapply(num_vars, sd, na.rm=TRUE))
+# IQR (Interquartile Range)
+print(iqr_        <- sapply(num_vars, IQR, na.rm=TRUE))
+# MAD (Median Absolute Deviation)
+print(mad_        <- sapply(num_vars, mad, na.rm=TRUE))
+# Coefficient de variation
+print(coef_var    <- sd_ / mean_ari) # coeff. de variation
+
+
+
+# Calcul des mesures de position et de forme
+# Quantile
+print(quantiles   <- lapply(num_vars, quantile, probs=seq(0,1,0.25), na.rm=TRUE))
+# Scores Z
+print(z_scores    <- scale(num_vars))                                                                           # scores Z
+# Asymétrie (Skewness)
+print(skewness_   <- sapply(num_vars, skewness, na.rm=TRUE))                                                     # asymétrie :contentReference[oaicite:6]{index=6}
+# Curtose (Kurtosis)
+print(kurtosis_   <- sapply(num_vars, kurtosis, na.rm=TRUE)) 
+
+
+# Calcul des fréquences et croisements
+# Tables de fréquence pour les variables catégorielles
+print(freq_tables <- lapply(df_prem_qua %>% select_if(is.factor), table))
+# Table de contingence pou PREMATURE et GEMEL
+print(cont_tab    <- table(df_prem_qua$PREMATURE, df_prem_qua$GEMEL))
+
+# Affichage des résultats
+print(paste("Observations:", n_obs))
+print(count_prem)
+print(round(prop_prem, 1))
+
+print("Moyennes arithmétiques :");    print(mean_ari)
+print("Moyennes trimmed (5%) :");     print(trimmed)
+print("Moyennes winsorisées (5%) :"); print(winsor_mean)
+
+print("Dispersion (écart-type) :");   print(sd_)
+print("IQR :");                       print(iqr_)
+
+print("Skewness :");                  print(skewness_)
+print("Kurtosis :");                  print(kurtosis_)
+
+
+
+## Analyse exploratoire   -----
+
+
+
+# Histogramme AGE
+ggplot(df_prem_qua, aes(x = AGE)) +
+  geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+  ggtitle("Histogramme de l'âge") +
+  theme_minimal()
+
+# Boxplot DILATE
+ggplot(df_prem_qua, aes(y = DILATE)) +
+  geom_boxplot(fill = "lightgreen") +
+  ggtitle("Boxplot de la dilatation") +
+  theme_minimal()
+
+# Density plot EFFACE
+ggplot(df_prem_qua, aes(x = EFFACE)) +
+  geom_density(fill = "pink", alpha = 0.5) +
+  ggtitle("Density plot de l'effacement") +
+  theme_minimal()
+
+# Bar chart PREMATURE
+ggplot(df_prem_qua, aes(x = PREMATURE, fill = PREMATURE)) +
+  geom_bar() +
+  ggtitle("Effectifs de prématurité") +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set2")
+
+# Violin plot DILATE selon PREMATURE
+ggplot(df_prem_qua, aes(x = PREMATURE, y = DILATE)) +
+  geom_violin(trim = FALSE, fill = "orange") +
+  geom_boxplot(width = 0.1) +
+  ggtitle("Violin plot de DILATE par prématurité") +
+  theme_minimal()
+
+# Scatter plot AGE vs DILATE avec smoother
+ggplot(df_prem_qua, aes(x = AGE, y = DILATE)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "loess") +
+  ggtitle("Relation AGE vs DILATE") +
+  theme_minimal()
+
+# Matrice de corrélation et heatmap
+cor_mat <- cor(select(df_prem_qua, where(is.numeric)), use = "complete.obs")
+ggcorrplot::ggcorrplot(cor_mat, hc.order = TRUE,
+                       type = "lower",
+                       lab = TRUE) +
+  ggtitle("Heatmap de corrélation") +
+  theme_minimal()
+
+# Scatterplot matrix variables sélectionnées
+GGally::ggpairs(df_prem_qua %>% select(AGE, DILATE, EFFACE, CONSIS),
+                title = "Scatterplot matrix")
+
+# Mosaic plot PREMATURE vs GEMEL
+df_prem_qua %>%
+  count(PREMATURE, GEMEL) %>%
+  ggplot(aes(x = PREMATURE, y = n, fill = GEMEL)) +
+  geom_bar(stat = "identity", position = "fill") +
+  ylab("Proportion") +
+  ggtitle("Mosaic plot: Prématurité vs GEMEL") +
+  theme_minimal()
+
+# Description rapide avec psych::describe
+describe(df_prem_qua[c("GEST", "DILATE", "EFFACE", "AGE", "GRAVID", "PARIT")])
+
+# Histogrammes complémentaires
+hist(df_prem_qua$AGE, col = "lightgreen", main = "Âge des patientes", xlab = "Âge")
+hist(df_prem_qua$GEST, col = "lightblue", main = "Âge gestationnel", xlab = "Semaines")
+
+# Table et pourcentages pour variables qualitatives
+qual_vars <- c("CONSIS", "CONTR", "MEMBRAN", "STRAT", "DIAB", "TRANSF", "GEMEL")
+
+for (var in qual_vars) {
+  print(var)
+  print(table(df_prem_qua[[var]]))
+  print(prop.table(table(df_prem_qua[[var]])))
+}
+
+# Cross-tabulations avec PREMATURE
+for (var in qual_vars) {
+  print(var)
+  print(table(df_prem_qua[[var]], df_prem_qua$PREMATURE))
+}
+
+# Boxplots pour variables continues selon PREMATURE
+boxplot(GEST ~ PREMATURE, data = df_prem_qua, col = "lightblue", main = "GEST selon accouchement prématuré")
+boxplot(AGE ~ PREMATURE, data = df_prem_qua, col = "lightgreen", main = "Âge selon accouchement prématuré")
+
+# Matrice de corrélation variables continues
+num_vars <- df_prem_qua[c("GEST", "DILATE", "EFFACE", "AGE", "GRAVID", "PARIT")]
+cor_matrix <- cor(num_vars, use = "complete.obs")
+print(cor_matrix)
+
+corrplot(cor_matrix, method = "circle", type = "upper", tl.col = "black", tl.srt = 45)
+
+# Tests statistiques (chi2, Shapiro, t-test)
+chisq.test(table(df_prem_qua$PREMATURE, df_prem_qua$GEMEL))
+chisq.test(table(df_prem_qua$PREMATURE, df_prem_qua$CONTR))
+chisq.test(table(df_prem_qua$PREMATURE, df_prem_qua$DIAB))
+
+shapiro.test(df_prem_qua$AGE[df_prem_qua$PREMATURE == "0"])
+shapiro.test(df_prem_qua$AGE[df_prem_qua$PREMATURE == "1"])
+
+t.test(AGE ~ PREMATURE, data = df_prem_qua)
+
+# Analyse en composantes principales (ACP)
+res.pca <- prcomp(na.omit(num_vars), scale = TRUE)
+biplot(res.pca, col = c("gray", "red"))
+fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 100))
+
+fviz_pca_var(res.pca,
+             col.var = "cos2",
+             gradient.cols = c("grey", "blue", "red"),
+             repel = TRUE)
+
+fviz_pca_ind(res.pca,
+             col.ind = "cos2",
+             gradient.cols = c("lightblue", "blue", "darkblue"),
+             repel = TRUE)
+
+fviz_contrib(res.pca, choice = "var", axes = 1, top = 10)
+fviz_contrib(res.pca, choice = "var", axes = 2, top = 10)
+
+fviz_pca_biplot(res.pca,
+                repel = TRUE,
+                col.var = "red",
+                col.ind = "blue")
+
+
+
+## 2e traitement de vérification avant le modèle statistique   -----
+
+cl_prem_qua <- na.omit(df_prem_qua)
+print(cl_prem_qua)
+View(cl_prem_qua)
+str(cl_prem_qua)
+summary(cl_prem_qua)
+sum(is.na(cl_prem_qua))
+colSums(is.na(cl_prem_qua))
+dim(cl_prem_qua)
+
+
+## Modèle logit   -----
+
+data <- cl_prem_qua                  
+View(data)
+
+# 2. Sélection du modèle Logit                                                 
+
+m0      <- glm(PREMATURE ~ 1,             binomial, data)
+m_full  <- glm(PREMATURE ~ . -PREMATURE,  binomial, data)
+m_sel   <- stepAIC(m0, scope = list(lower=m0, upper=m_full),
+                   direction="both", trace = FALSE)
+
+# 3. Qualité du modèle                                                        
+
+summary(m_sel)                                   # détail coefficients
+vif(m_sel)                                       # multicolinéarité
+pseudoR2 <- 1 - logLik(m_sel)/logLik(m0); pseudoR2
+hoslem.test(m_sel$y, fitted(m_sel), g = 10)      # Hosmer–Lemeshow
+roc_obj <- roc(data$PREMATURE, fitted(m_sel)); auc(roc_obj)
+table(obs = data$PREMATURE, pred = fitted(m_sel)>0.5)
+
+
+# 4. Effets des variables                                                     
+
+tidy(m_sel, exponentiate = TRUE)                 # OR + CI
+margins(m_sel) |> summary()                      # effets marginaux
+
+#Odds ratios 
+
+or_data <- tidy(m_sel, exponentiate = TRUE, conf.int = TRUE)
+
+ggplot(or_data, aes(x = reorder(term, estimate), y = estimate)) +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2) +
+  coord_flip() +
+  labs(title = "Odds Ratios avec IC 95%", x = "Variables", y = "Odds Ratio (exp(coef))") +
+  theme_minimal()
+
+#visualisation sans l'intercept à l'echelle log
+
+or_plot_data <- or_data %>%
+  filter(term != "(Intercept)")
+
+ggplot(or_plot_data, aes(x = reorder(term, estimate), y = estimate)) +
+  geom_point(size = 3) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.25) +
+  scale_y_log10() +
+  coord_flip() +
+  labs(title = "Odds Ratios avec IC 95% (log scale)",
+       x = "Variables explicatives",
+       y = "Odds Ratio") +
+  theme_minimal()
+
+#Visualisation des effets marginaux
+
+marg_eff <- margins(m_sel)
+marg_summary <- summary(marg_eff)
+
+ggplot(marg_summary, aes(x = reorder(factor, AME), y = AME)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(title = "Effets marginaux moyens",
+       x = "Variables",
+       y = "Effet marginal (variation de la probabilité)") +
+  theme_minimal()
+
