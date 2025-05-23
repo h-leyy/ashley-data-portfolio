@@ -16,6 +16,7 @@ Ce répertoire est alimenté au fur et à mesure de mon évolution et de la réa
    - [1. Projet SQL/Power BI – Conseil en stratégie commerciale et opérationnelle d’une entreprise](#1️⃣-projet-sqlpower-bi--conseil-en-stratégie-commerciale-et-opérationnelle-dune-entreprise)
    - [2. Sujet de mémoire en économétrie – Analyse de la viralité des vidéos sur TikTok avec des modèles de régression sur R en cours](#2️⃣-sujet-de-mémoire-en-économétrie--analyse-de-la-viralité-des-vidéos-sur-tiktok-avec-des-modèles-de-régression-sur-r-en-cours)
    - [3. Projet Python –  Maladies Cardiovasculaires ….Quelles sont les individus les plus vulnérables ?](#3️⃣-projet-python-maladies-cardiovasculaires-quelles-sont-les-individus-les-plus-vulnérables-?)
+   - [4. Projet Python – Facteurs d'accouchement prématuré ](#1️⃣-projet-python-facteurs-d'accouchement-prématuré)
 
 3. [Compétences Techniques](#🛠-compétences-techniques)
 4. [Contact](#📥-contact)
@@ -60,6 +61,18 @@ Technologies : Python (Pandas, Seaborn, Matplotlib)
 #### 📂 Fichiers:
 - 📄 [`Projet_pyhton.ipynb`](https://github.com/h-leyy/ashley-data-portfolio/blob/main/Projet_pyhton.ipynb)
 - 📊 [Présentation - Projet Python (PDF)](https://github.com/h-leyy/ashley-data-portfolio/blob/main/Projet%20Python%20-%20pr%C3%A9sentation.pdf)
+
+
+  ### 1️⃣ Projet Python – Facteurs d'accouchement prématuré  
+Technologies utilisées: Python
+- Contexte: Utilisation de SQL pour analyser les données de ventes d’une entreprise et déterminer les leviers de croissance.  
+- Objectif: Recommander des stratégies commerciales basées sur les tendances observées dans les ventes.  
+- Données: Base de données SQL comprenant des informations sur les ventes, les clients et les produits.  
+- Résultats: Tableau de bord interactif sur Power BI, permettant de visualiser les tendances et d’analyser les performances par région et par catégorie de produits.
+
+#### 📂 Fichiers:
+- 📄 [ `sql_queries/queries.sql`](sql_queries/queries.sql)
+- 📊 [`visualizations/sales_dashboard.pbix`](projet2_visualizations/)
 
 ---
 
