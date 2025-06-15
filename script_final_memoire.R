@@ -18,7 +18,7 @@ library(tidyverse)
 
 # Charger les données 
 
-dataset_tiktok_ajusté <- read_excel("~/mémoire/dataset_tiktok_ajusté.xlsx", 
+dataset_tiktok_ajusté <- read_excel("~/mémoire/dataset_final_memoire.xlsx", 
                                     col_types = c("text", "numeric", "numeric", 
                                                   "numeric", "numeric", "numeric", 
                                                   "numeric", "numeric", "numeric", 
